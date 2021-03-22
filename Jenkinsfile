@@ -1,18 +1,7 @@
 pipeline {
-  agent any 
+   agent any
   stages {
-    stage('Build') {
-      steps {
-        sh "mvn compile"
-      }
-    }  
-    stage('Test') {
-      steps {
-        sh "mvn test"
-      }pipeline {
-agent any
-stages {
-  stage('Checkout') {
+    stage('Checkout') {
        steps {
                git 'https://github.com/SubhashiniPenumatsa/fooproject/'
           }
@@ -34,11 +23,4 @@ stages {
         }
       }
     }
-     post {
-      always {
-        junit '**/TEST*.xml'
-      }
-     }
-  }
- }
-}
+     
