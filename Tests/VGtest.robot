@@ -36,14 +36,15 @@ Then User is logged in
 
 User enters valid dates to book car
      Press Keys    xpath://*[@id="reset"]     RETURN
-     ${d}=  get current date
-     ${CURRENTDATE}=  add time to date  (${d},  7)   result_format=%m%d
-     ${STARTDATE}=  add time to date
-     log    ${CURRENTDATE}
-     input text    xpath://*[@id="start"]     ${CURRENTDATE}
+     ${Current}=  Get Current Date  result_format=%Y-%m-%d %H:%M:%S.%f
+     ${newdatetime} =  Add Time To Date  ${Current}  2 days
+     ${STARTDATE}=   Convert Date    ${newdatetime}  result_format=%m%d
+     ${NEWENDDATE}=   Add Time To Date  ${newdatetime}  7 days
+     ${ACTUALENDDATE}=   Convert Date     ${NEWENDDATE}  result_format=%m%d
+     input text    xpath://*[@id="start"]      ${STARTDATE}
 
-     input text    xpath://*[@id="end"]        0324
-     ${STARTDATE}=  get value     xpath://*[@id="start"]
+     input text    xpath://*[@id="end"]        ${ACTUALENDDATE}
+
 
 User clicks the continue button
 
@@ -88,6 +89,21 @@ verify confirm booking
 User Can view bookings on Mypage
     press keys       xpath://*[@id="mypage"]    RETURN
 
+Clear all bookings
+    Click button                    xpath://*[@id="mypage"]
+    Sleep                           1 seconds
+    Wait until page contains        My bookings
+    Click button                    xpath://*[@id="unBook1"]
+    Handle alert
+    Click button                    xpath://*[@id="mypage"]
+    Wait until page contains        You have no bookings
+    Verify no bookings left
+
+Verify no bookings left
+    ${actual_text}                  Get text    xpath://*[@id="historyText"]
+    Should be equal                 "You have no bookings"      "${actual_text}"
+    Sleep                           1 seconds
+
 End Web Test
   close all browsers
 
@@ -108,6 +124,8 @@ User can book a car
      User enters valid card payment details
      User clicks the Confirm booking
      User Can view bookings on Mypage
+     Clear all bookings
+     Verify no bookings left
      End Web Test
 
 
