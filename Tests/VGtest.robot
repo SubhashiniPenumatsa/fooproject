@@ -10,7 +10,7 @@ ${URL}                          http://rental30.infotiv.net/
 ${USERID}                       abc@info.com
 ${PASSWORD}                     test123
 ${SIGNINMESSAGE}                You are signed in
-${CARSELECTPAGE}                When do you want to make your trip?
+${CARSELECTPAGE}                What would you like to drive
 ${CONFIRMBOOK}                  Confirm booking
 ${CONFIRMBOOKMESSAGE}           is now ready for pickup
 ${STARTDATE}
