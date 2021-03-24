@@ -1,11 +1,11 @@
 package test;
+import static org.junit.jupiter.api.Assertions.*;
+import PersonnelSystem;
+import static org.junit.Before;
+import static org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Test;
 
-import com.company.PersonnelSystem;
-import org.junit.Before;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
-import com.company.Employee;
+import Employee;
 import java.util.Arrays;
 
 public class EmployeeTest {
