@@ -55,15 +55,8 @@ User on the car selection page
 
 
 User selects the Make and Number Of Passengers To Book Car
-  click element    xpath=//*[@id="ms-list-1"]/button
-  select checkbox   xpath=//*[@id="ms-opt-1"]
-  click element    xpath=//*[@id="ms-list-1"]/button
-  click element    xpath=//*[@id="ms-list-2"]/button
-  click element   xpath=//*[@id="ms-list-2"]/div/ul/li[2]/label
-  click element    xpath=//*[@id="ms-list-2"]/button
+  Click button                    xpath://*[@id="bookQ7pass5"]
 
-User clicks the Book button
-  Press Keys    xpath://*[@id="carSelect1"]     RETURN
 
 User on the Confirm book page
     element should contain  xpath://*[@id="questionText"]   ${CONFIRMBOOK}
@@ -120,7 +113,6 @@ User can book a car
      User enters valid dates to book car
      User clicks the continue button
      User selects the Make and Number Of Passengers To Book Car
-     User clicks the Book button
      User enters valid card payment details
      User clicks the Confirm booking
      User Can view bookings on Mypage
