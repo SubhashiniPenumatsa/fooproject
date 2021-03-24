@@ -3,9 +3,9 @@ import  org.junit.jupiter.api.Assertions.*;
 import  org.junit.Before;
 import  org.junit.jupiter.api.Assertions;
 import  org.junit.jupiter.api.Test;
-import java.util.Arrays;
-import Employee;
-import PersonnelSystem;
+import 	java.util.Arrays;
+import 	com.company.Employee;
+import 	com.company.PersonnelSystem;
 
 public class EmployeeTest {
 
