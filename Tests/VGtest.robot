@@ -59,7 +59,7 @@ User selects the Make and Number Of Passengers To Book Car
   select checkbox   xpath=//*[@id="ms-opt-1"]
   click element    xpath=//*[@id="ms-list-1"]/button
   click element    xpath=//*[@id="ms-list-2"]/button
-  select checkbox   xpath=//*[@id="ms-opt-8"]
+  click element   xpath=//*[@id="ms-list-2"]/div/ul/li[2]/label
   click element    xpath=//*[@id="ms-list-2"]/button
 
 User clicks the Book button
