@@ -1,8 +1,8 @@
 package test;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.Before;
-import static org.junit.jupiter.api.Assertions;
-import static org.junit.jupiter.api.Test;
+import  org.junit.jupiter.api.Assertions.*;
+import  org.junit.Before;
+import  org.junit.jupiter.api.Assertions;
+import  org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 public class EmployeeTest {
