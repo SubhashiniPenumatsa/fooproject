@@ -28,6 +28,9 @@ pipeline {
                         sh "mvn test"
                      }
          post {
+		 
+			success{ gerritReview score:1}
+			failure{ gerritReview score:-1}
             always {
                   junit '**/target/surefire-reports/TEST*.xml'
               }
