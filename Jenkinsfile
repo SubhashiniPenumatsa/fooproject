@@ -18,6 +18,11 @@ pipeline {
                      sh "mvn compile"
                 }
             }
+			stage ('Code Coverage') {
+              steps {
+                     jacoco changeBuildStatus: true, runAlways: true, skipCopyOfSrcFiles: true
+                }
+            }
       stage('Test') {
                 steps {
                         sh "mvn test"
