@@ -6,6 +6,13 @@ pipeline {
                git 'https://github.com/SubhashiniPenumatsa/fooproject/'
           }
      }
+	  stage ('Code Analysis') {
+              steps {
+                     sh "mvn pmd:pmd"
+					 sh "mvn checkstyle:checkstyle"
+					 sh "mvn findbugs:findbugs"
+                }
+            }
       stage ('Build') {
               steps {
                      sh "mvn compile"
