@@ -23,14 +23,7 @@ pipeline {
                      jacoco changeBuildStatus: true, runAlways: true, skipCopyOfSrcFiles: true
                 }
 			}
-			stage("SonarQube analysis") {
-				agent any
-				steps {
-				  withSonarQubeEnv('https://sonarcloud.io/organizations/subhashiniiths/projects') {
-					sh 'mvn clean package sonar:sonar'
-				  }
-				}
-			}		
+			
 		
       stage('Test') {
                 steps {
