@@ -22,7 +22,27 @@ pipeline {
               steps {
                      jacoco changeBuildStatus: true, runAlways: true, skipCopyOfSrcFiles: true
                 }
+				post {
+                always {
+                    script {
+                        step(
+                            [
+                                $class                  :   'JacocoPublisher',
+                                outputPath              :   'Results',
+                                outputFileName          :   '**/output.xml',
+                                reportFileName          :   '**/report.html',
+                                logFileName             :   '**/log.html',
+                                disableArchiveOutput    :   false,
+                                passThreshold           :   50,
+                                unstableThreshold       :   40,
+                                otherFiles              :   "**/*.png,**/*.jpg",
+                            ]
+                        )
+                    }
+                }
             }
+			}
+		
       stage('Test') {
                 steps {
                         sh "mvn test"
