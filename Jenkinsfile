@@ -22,7 +22,12 @@ pipeline {
               steps {
                      jacoco changeBuildStatus: true, runAlways: true, skipCopyOfSrcFiles: true
                 }
-			}	
+			}
+            stage('SonarQube analysis') {
+            withSonarQubeEnv('My SonarQube Server') {
+            sh 'mvn clean package sonar:sonar'
+             } // submitted SonarQube taskId is automatically attached to the pipeline context
+           }			
 		
       stage('Test') {
                 steps {
